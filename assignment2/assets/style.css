@@ -3,12 +3,33 @@
     flex-direction: column;
     align-items: center;
 }
-.child{
-    width: 200px;
-    height: 200px;
-    background-color: lightblue;
-    margin: 10px;
+.child1{
+    width: 90%;
+    padding: 20px;
+
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items: flex-end;
+    gap:30px;
+      
 }
+
+.child1 h1{
+    width:100%;
+    align-items: center;
+    flex-basis:100%;
+    text-align:center;
+    margin:0;
+
+}
+
+.child1 label{
+    display:block;
+    margin-bottom:5px;
+
+}
+
 .child2{
     display: flex;
     flex-direction: row;
