@@ -7,13 +7,6 @@ app = Dash(__name__)
 
 stock_df = pd.read_csv(os.path.join(os.path.dirname(__file__), 'StockData.csv')).dropna()
 
-'''
-#extracting data
-avg_open_by_company = stock_df.groupby('Company')['Open'].mean().reset_index()
-avg_close_by_company = stock_df.groupby('Company')['Close'].mean().reset_index()
-avg_high_by_company = stock_df.groupby('Company')['High'].mean().reset_index()
-avg_low_by_company = stock_df.groupby('Company')['Low'].mean().reset_index()
-'''
 
 app.layout = html.Div(className = "parent", children = [
     html.Div(className = "child1", children = [
@@ -63,9 +56,9 @@ def update_charts(n_clicks,selected_month,selected_metric):
 
     avg_metric = (filtered_df.groupby('Company')[selected_metric].mean().reset_index())
     
-    bar_fig = px.bar(avg_metric, x='Company', y=selected_metric,color='Company', title=f'Average Open Price of Each Company')
+    bar_fig = px.bar(avg_metric, x='Company', y=selected_metric,color='Company', title=f'Average {selected_metric} Price of Each Company')
     
-    box_fig = px.box(filtered_df, x='Company', y=selected_metric,color='Company', title=f'Stock Open Price Distribution')
+    box_fig = px.box(filtered_df, x='Company', y=selected_metric,color='Company', title=f'Stock {selected_metric} Price Distribution')
     
     return bar_fig, box_fig
 
